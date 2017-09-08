@@ -63,9 +63,9 @@ def update (id, title, author, year, isbn):
 connect()
 #insert("Topolino","bomba",1985,12345336)
 #delete(7)
-update(5,"nuovo titolo","nuovo autore",1999,999)
+#update(5,"nuovo titolo","nuovo autore",1999,999)
 #update(2,"new title","gian",1987,9999)
-print(view())
+#print(view())
 #print(search(author="gian"))
 
 
