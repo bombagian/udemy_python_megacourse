@@ -7,24 +7,16 @@ class Database:
 		  self.cur = self.conn.cursor()
 		  self.cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title TEXT, author TEXT, year INTEGER, isbn INTEGER)")
 		  self.conn.commit()
-	
-
-
 
 	def insert(self,title, author, year, isbn):
-	    self.cur.execute("INSERT INTO book VALUES(NULL,?,?,?,?)", (title,author,year,isbn)) 
+	    self.cur.execute("INSERT INTO book VALUES(NULL,?,?,?,?)", (title,author,year,isbn))
 	    #need to pass the NULL value to allow SQL to automatically insert and auto-inrement the ID
 	    self.conn.commit()
-
-
 
 	def view(self):
 	    self.cur.execute("SELECT * FROM book")
 	    rows = self.cur.fetchall()
 	    return rows
-
-
-
 
 	def search(self,title="", author="", year="", isbn=""):
 		#note the variables passed are "initialised to empty"
@@ -32,11 +24,9 @@ class Database:
 		rows = self.cur.fetchall()
 		return rows
 
-
 	def delete(self,id):
 	    self.cur.execute("DELETE FROM book WHERE id=?", (id,))
 	    self.conn.commit()
-
 
 	def update (self,id, title, author, year, isbn):
 		self.cur.execute("UPDATE book SET title=?,author=?,year=?,isbn=? WHERE id=?",(title,author,year,isbn,id))
